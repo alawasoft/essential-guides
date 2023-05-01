@@ -75,6 +75,9 @@ docker rmi $(docker images -q)
 docker container prune -a -f
 docker image prune -a -f
 docker system prune -a -f
+
+Optional: 
+docker volume rm cvat_cvat_db
 ```
 
 11. **Install Nuclio:**
