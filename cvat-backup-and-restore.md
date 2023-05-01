@@ -17,14 +17,15 @@ mkdir backup
 3. **Backup data:**
 
 ```bash
-docker run --rm --name temp_backup --volumes-from cvat_db -v $(pwd)/backup:/backup ubuntu tar -cjvf /backup/cvat_db.tar.bz2 /var/lib/postgresql/data
-docker run --rm --name temp_backup --volumes-from cvat -v $(pwd)/backup:/backup ubuntu tar -cjvf /backup/cvat_data.tar.bz2 /home/django/data
+docker run --rm --name temp_backup --volumes-from cvat_db -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_db.tar.bz2 /var/lib/postgresql/data"
+
+docker run --rm --name temp_backup --volumes-from cvat -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_data.tar.bz2 /home/django/data
 ```
 
 4. **(Optional) Backup Elasticsearch data:**
 
 ```bash
-docker run --rm --name temp_backup --volumes-from cvat_elasticsearch -v $(pwd)/backup:/backup ubuntu tar -cjvf /backup/cvat_events.tar.bz2 /usr/share/elasticsearch/data
+docker run --rm --name temp_backup --volumes-from cvat_elasticsearch -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_events.tar.bz2 /usr/share/elasticsearch/data
 ```
 
 5. **Verify the backup:**
