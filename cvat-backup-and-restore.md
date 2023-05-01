@@ -54,8 +54,8 @@ Change `<path_to_backup_folder>` to the path where your backup files are located
 
 ```bash
 cd <path_to_backup_folder>
-docker run --rm --name temp_backup --volumes-from cvat_db -v $(pwd):/backup ubuntu bash -c "cd /var/lib/postgresql/data && tar -xvf /backup/cvat_db.tar.bz2 --strip 4"
-docker run --rm --name temp_backup --volumes-from cvat -v $(pwd):/backup ubuntu bash -c "cd /home/django/data && tar -xvf /backup/cvat_data.tar.bz2 --strip 3"
+docker run --rm --name temp_backup --volumes-from cvat_db -v $(pwd):/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 cd /var/lib/postgresql/data && tar -xvf /backup/cvat_db.tar.bz2 --strip 4"
+docker run --rm --name temp_backup --volumes-from cvat -v $(pwd):/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 cd /home/django/data && tar -xvf /backup/cvat_data.tar.bz2 --strip 3"
 ```
 
 3. **(Optional) Restore Elasticsearch data:**
