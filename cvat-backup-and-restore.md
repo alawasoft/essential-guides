@@ -19,7 +19,7 @@ mkdir backup
 ```bash
 docker run --rm --name temp_backup --volumes-from cvat_db -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_db.tar.bz2 /var/lib/postgresql/data"
 
-docker run --rm --name temp_backup --volumes-from cvat -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_data.tar.bz2 /home/django/data
+docker run --rm --name temp_backup --volumes-from cvat -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_data.tar.bz2 /home/django/data"
 ```
 
 4. **(Optional) Backup Elasticsearch data:**
