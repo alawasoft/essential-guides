@@ -26,7 +26,7 @@ docker run --rm --name temp_backup --volumes-from cvat_server -v $(pwd)/backup:/
 4. **(Optional) Backup Elasticsearch data:**
 
 ```bash
-docker run --rm --name temp_backup --volumes-from cvat_elasticsearch -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_events.tar.bz2 /usr/share/elasticsearch/data
+docker run --rm --name temp_backup --volumes-from cvat_elasticsearch -v $(pwd)/backup:/backup ubuntu bash -c "apt-get update && apt-get install -y bzip2 && tar -cjvf /backup/cvat_events.tar.bz2 /usr/share/elasticsearch/data"
 ```
 
 5. **Verify the backup:**
