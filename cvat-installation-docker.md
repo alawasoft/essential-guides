@@ -54,6 +54,7 @@ cd cvat
 7. **Set CVAT_HOST environment variable:**
 ```bash
 export CVAT_HOST=your-ip-address
+export CVAT_VERSION=dev docker compose up -d
 ```
 
 8. **Build Docker images:**
