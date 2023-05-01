@@ -59,7 +59,7 @@ export CVAT_VERSION=dev docker compose up -d
 
 8. **Build Docker images:**
 ```bash
-docker-compose -f docker-compose.yml -f components/analytics/docker-compose.analytics.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml build
+docker-compose -f docker-compose.yml -f components/serverless/docker-compose.serverless.yml -f docker-compose.override.yml build
 ```
 
 9. **Start CVAT services:**
