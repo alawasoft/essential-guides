@@ -61,3 +61,32 @@ Here's a summary of the steps to configure an NVIDIA GPU in an Ubuntu VM running
 10. Check the GPU status and driver version using `nvidia-smi`.
 
 This process should enable the NVIDIA GPU in your Ubuntu VM running on VMware ESXi.
+
+
+Optional 
+
+11. Setup CUDA
+
+   ```
+      wget https://developer.download.nvidia.com/compute/cuda/11.0.3/local_installers/cuda_11.0.3_450.51.06_linux.run
+      sudo sh cuda_11.0.3_450.51.06_linux.run
+   ```
+
+12. Add cuda path
+   ```
+   nano ~/.bashrc 
+   export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}$ 
+   export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+   ```
+
+13. install cudnn
+   ```
+   tar -xvf cudnn-11.0-linux-x64-v8.0.5.39.tg
+   sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
+   sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64
+   sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+
+   check installation
+   nvcc --version
+   ```
+
