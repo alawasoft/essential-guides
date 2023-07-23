@@ -48,16 +48,16 @@ Here's a summary of the steps to configure an NVIDIA GPU in an Ubuntu VM running
    Choose the default options during the installation.
 
 8. Check for the existence of the `nvidia.conf` file in `/etc/modprobe.d/`. If it doesn't exist, create it and add the following line:
-   ```
-   sudo nano /etc/modprobe.d/nvidia.conf
 
-   Add:
-   options nvidia NVreg_OpenRmEnableUnsupportedGpus=1
-   ```
    To create and edit the file, use:
    ```
    sudo nano /etc/modprobe.d/nvidia.conf
    ```
+
+   ```
+   options nvidia NVreg_OpenRmEnableUnsupportedGpus=1
+   ```
+
 
 9. Reboot the virtual machine.
 
