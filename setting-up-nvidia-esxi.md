@@ -93,4 +93,8 @@ Optional
    check installation
    nvcc --version
    ```
-
+14. Install nvdia-docker
+    ```
+    sudo apt-get update \
+    && sudo apt-get install -y nvidia-container-toolkit-base
+    ```
