@@ -78,6 +78,8 @@ docker system prune -a -f
 
 Optional: 
 docker volume rm cvat_cvat_db
+docker volume rm $(docker volume ls -q)
+
 ```
 
 11. **Install Nuclio:**
